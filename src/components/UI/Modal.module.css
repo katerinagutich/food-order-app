@@ -28,6 +28,12 @@
     }
 }
 
+@media (max-width: 620px) {
+    .modal {
+        top: 10vh;
+    }
+}
+
 @keyframes slide-down {
     from {
         opacity: 0;
