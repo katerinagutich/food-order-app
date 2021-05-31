@@ -6,6 +6,12 @@
     overflow-y: scroll;
 }
 
+@media (max-width: 620px) {
+    .cart-items {
+        max-height: 15rem;
+    }
+}
+
 .total {
     display: flex;
     justify-content: space-between;
