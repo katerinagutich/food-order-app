@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import styles from './Checkout.module.css'
 
 const isEmpty = (value) => value.trim() === ''
-const isFiveChars = (value) => value.trim() === 5
+const isFiveChars = (value) => value.trim().length === 5
 
 const Checkout = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -22,30 +22,37 @@ const Checkout = (props) => {
 
     const enteredName = nameInput.current.value
     const enteredStreet = streetInput.current.value
-    const enteredPortal = postalCodeInput.current.value
+    const enteredPostalCode = postalCodeInput.current.value
     const enteredCity = cityInput.current.value
 
     const enteredNameIsValid = !isEmpty(enteredName)
     const enteredStreetIsValid = !isEmpty(enteredStreet)
-    const enteredPortalCodeIsValid = isFiveChars(enteredPortal)
+    const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode)
     const enteredCityIsValid = !isEmpty(enteredCity)
 
     setFormInputsValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
-      postalCode: enteredPortalCodeIsValid,
+      postalCode: enteredPostalCodeIsValid,
       city: enteredCityIsValid,
     })
 
     const formIsValid =
       enteredNameIsValid &&
       enteredStreetIsValid &&
-      enteredPortalCodeIsValid &&
+      enteredPostalCodeIsValid &&
       enteredCityIsValid
 
     if (!formIsValid) {
       return
     }
+
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      postalCode: enteredPostalCode,
+      city: enteredCity,
+    })
   }
 
   const nameControlClasses = `${styles.control} ${
