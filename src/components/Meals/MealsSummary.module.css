@@ -4,7 +4,7 @@
     width: 90%;
     margin: -10rem auto auto;
     position: relative;
-    background-color: #383838;
+    background-color: #323232;
     color: white;
     border-radius: 14px;
     padding: 1rem;
@@ -14,4 +14,20 @@
 .summary h2 {
     font-size: 2rem;
     margin-top: 0;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 10%, 25%, 55%, 75%, 100% {
+        text-shadow: 0 0 2px #fff,
+        0 0 3px #fff,
+        0 0 4px #fff,
+        0 0 7px #ba135d,
+        0 0 9px #ba135d,
+        0 0 10px #ba135d,
+        0 0 15px #ba135d;
+    }
+    20%, 30%, 70% {
+     text-shadow: none;
+    }
 }

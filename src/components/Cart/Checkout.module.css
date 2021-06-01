@@ -1,7 +1,15 @@
 .form {
     margin: 1rem 0;
-    height: 15rem;
+    height: 19rem;
     overflow-y: auto;
+}
+
+@media (max-width: 620px) {
+    .form {
+        margin: 1rem 0;
+        height: 19rem;
+        overflow-y: auto;
+    }
 }
 
 .control {
